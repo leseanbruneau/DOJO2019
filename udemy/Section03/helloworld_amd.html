@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hello DOJO</title>
+    <style>
+        .testClass{
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js"></script>
+    <!-- dojo.config -->
+
+    <script type="text/javascript">
+        require(["dojo/dom","dojo/query","dojo/domReady!"],function(dom,query){
+            var i = dom.byId("test");
+            var j = query("#test");
+            j[0].innerHTML="AMD Test";
+            console.log(i.innerHTML);
+        });
+    </script>
+    <!--
+        
+    -->
+    
+    <h1 id="test"> Hello World! </h1>
+    <!--
+    <h2 class="testClass"> Hello Again!! </h2>
+    -->
+    <h2 name="testName"> Hello Again!! </h2>
+    <!--dojo.query("[name='testName']")-->
+    <!--dojo.query("[name^='test']")-->
+
+    <div>
+        <a href="http://www.google.com"> Click to go to Google </a>
+    </div>
+    <!-- dojo.query("div"); -->
+    <!-- dojo.query("div > a"); -->
+
+</body>
+
+</html>

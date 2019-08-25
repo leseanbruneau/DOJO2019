@@ -1,0 +1,40 @@
+
+Section 3 - DOJO DOM Selectors
+
+Legacy Syntax:
+-----------------
+dojo.ready(function(){});
+
+
+AMD - Aynchronus Module Definition
+load modules on demand
+AMD Loader - on page load; makes use of two functions
+1) require
+2) define
+
+AMD Syntax:
+-------------------
+require([module1,module2,...], function(module1,module2,...){});
+require(["dojo/domready!"],function(){});
+
+    <script type="text/javascript">
+        require(["dojo/dom","dojo/query","dojo/domReady!"],function(dom,query){
+            var i = dom.byId("test");
+            var j = query("#test");
+            j[0].innerHTML="AMD Test";
+            console.log(i.innerHTML);
+        });
+    </script>
+
+- For ID module - need to include dojo/dom module
+- For class module - need to include dojo/query module
+
+
+
+Section 4 - Event Handling with DOJO
+------------------------------------
+
+
+
+
+
