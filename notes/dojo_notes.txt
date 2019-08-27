@@ -34,7 +34,50 @@ require(["dojo/domready!"],function(){});
 Section 4 - Event Handling with DOJO
 ------------------------------------
 
+DOM Functions -
+1. Query
+2. Create
+3. Place
+4. Destroy
 
+Dojo-On module:
+- event listening
+- event dispatching
+
+Syntax:
+
+Single Node
+
+require(["dojo/on"], function(on) {
+ on(target, "event", function(e){
+  // handle event
+ });
+});
+
+
+Event handle:
+
+var handle = on(myButton, "click"
+
+
+DOM CLASS MANIPULATION
+----------------------
+
+-> class - collection of css attributes
+-> Node can have multiple classes
+-> dojo/dom-class module is used to work with classes
+
+Contains 5 methods
+
+contains(<node>,<class>) - returns a boolean, true if present, otherwise false
+
+add(<node>,<class>) - add class to node (ignored if already present)
+
+remove(<node>,<class>) - remove class from node
+
+toggle(<node>,<class>) - remove if present, add if absent
+
+replace(<node>,<oldClass>,<newClass>) 
 
 
 
