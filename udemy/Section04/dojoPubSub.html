@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> DOJO pub/sub </title>
+</head>
+<body>
+    <h1> Please click a button </h1>
+
+    <button id="one"> button1 </button>
+
+    <div id="testNode"></div>
+
+    
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script>
+        require(["dojo/dom","dojo/on","dojo/topic","dojo/domReady!"], function(dom,on,topic) {
+
+            var btn1 = dom.byId('one');
+            var testNode = dom.byId("testNode");
+
+            topic.subscribe("test/topic",function(a,b){
+                //alert(a+b);
+                //with array
+                //alert(a.length);
+                // with object
+                alert(a.t2);
+            });
+
+            topic.subscribe("test/topic",function(b,c,d){
+                //testNode.innerHTML = "I received the value:"+b+c+d;
+                //with array
+                testNode.innerHTML = "I received the value:"+b[0];
+                // with object
+                testNode.innerHTML = "I received the value:"+b.t3;
+            });
+
+            on(btn1,"click",function(){
+                //topic.publish("test/topic","Testing");
+                //topic.publish("test/topic","Testing","testAgain","testingSame");
+                // as array
+                //topic.publish("test/topic",["Testing","testAgain","testingSame"]);
+                // as object
+                topic.publish("test/topic",{t1:"Testing",t2:"testAgain",t3:"testingSame"});
+            });
+            
+        });
+    </script>
+
+</body>
+</html>

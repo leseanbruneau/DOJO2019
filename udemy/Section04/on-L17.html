@@ -36,7 +36,17 @@
         var div = dom.byId("myDiv");
         var domstyleDiv = dom.byId("domStyle");
 
+        /*
+        var mouseEnterHandle = on(div,mouse.enter, function(event) {
+            domstyle.set(div,"width","2500px");
+            div.innerHTML="Move mouse pointer away to change color to white: width is - "+domstyle.get(div,"width");
+            div.style.background="yellow";
+            mouseEnterHandle.remove();
+        });
+        */
+
         on.once(div,mouse.enter, function(event) {
+            //div.innerHTML="Move mouse pointer away to change color to white: width is - "+domstyle.get(div,"width");
             div.innerHTML="Move mouse pointer away to change color to white";
             div.style.background="yellow";
             //Lecture 17
@@ -57,11 +67,26 @@
         });
 
         on(hideButton,"click", function(event) {
+            /*
+            if(mouse.isLeft(event)) {
+                alert('mouse left button clicked');
+                div.style.display="none";
+            } else if(mouse.isRight(event)) {
+                alert('mouse right button clicked');
+            }
+            */
             //Lecture 17
             div.style.display="none";
         });
 
         on(showButton,"click", function(event) {
+            /*
+            if(div.style.display=="none"){
+                div.style.display="block";
+            }
+            var styles = domstyle.getComputedStyle(domstyleDiv);
+            div.innerHTML = "Width is "+ styles.width + "height is: " + styles.height + "background color is: " + styles.backgroundColor;
+            */
             if(div.style.display=="none") {
                 div.style.display="block";
             }

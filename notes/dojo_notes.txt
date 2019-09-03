@@ -80,4 +80,58 @@ toggle(<node>,<class>) - remove if present, add if absent
 replace(<node>,<oldClass>,<newClass>) 
 
 
+Lecture 20 - Publish - Subscribe DOJO event system
+
+Dojo Publish/Subscribe event system
+
+-- No reference to any object or node.
+-- Publisher doesn't need to know about subscribers
+-- Available in dojo/topic module
+
+Syntax:
+For publish:
+
+Method 1:
+------------
+topic.publish("topic name",[param1,param2,param3,...]);
+
+For subscribe:
+
+topic.subscribe("topic name", function(params){
+
+----Event handling code-----
+});
+
+
+
+Method 2:
+----------
+topic.publish("topic name","param1","param2","param3",...);
+
+For subscribe:
+
+topic.subscribe("topic name", function(param1,param2,param3,...){
+---Event handling code---
+});
+
+
+Method 3:
+-----------
+topic.publish("topic name",{p1:"param1",p2:"param2",...});
+
+For subscribe:
+
+var handle = topic.subscribe("topic name", function(params){
+
+params.p1
+params.p2
+----Event handling code-------
+});
+
+handle.remove();
+
+-- Topic name must be unique, no globbing allowed.
+-- Subscribe returns an event handle, can be removed.
+
+
 

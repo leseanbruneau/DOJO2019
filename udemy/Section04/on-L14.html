@@ -36,19 +36,12 @@
         var div = dom.byId("myDiv");
         var domstyleDiv = dom.byId("domStyle");
 
-        on.once(div,mouse.enter, function(event) {
-            div.innerHTML="Move mouse pointer away to change color to white";
+        on(div,mouse.enter, function(event) {
+            domstyle.set(div,"width","2500px");
+            div.innerHTML="Move mouse pointer away to change color to white: width is - "+domstyle.get(div,"width");
             div.style.background="yellow";
-            //Lecture 17
-            //part 1
-            //on.emit(hideButton,"click",{bubbles:true,cancellable:true});
-            // part 2
-            on.emit(div,"grow",{bubbles:true,cancellable:true});
         });
 
-        on(div,"grow",function(e) {
-            domstyle.set(div,"fontSize","50px");
-        });
 
 
         on(div,mouse.leave, function(event) {
@@ -56,15 +49,21 @@
             div.innerHTML="Mouse over to change background to yellow.";
         });
 
-        on(hideButton,"click", function(event) {
-            //Lecture 17
-            div.style.display="none";
+        on(hideButton,"mousedown", function(event) {
+            if(mouse.isLeft(event)) {
+                alert('mouse left button clicked');
+                div.style.display="none";
+            } else if(mouse.isRight(event)) {
+                alert('mouse right button clicked');
+            }
         });
 
         on(showButton,"click", function(event) {
-            if(div.style.display=="none") {
+            if(div.style.display=="none"){
                 div.style.display="block";
             }
+            var styles = domstyle.getComputedStyle(domstyleDiv);
+            div.innerHTML = "Width is "+ styles.width + "height is: " + styles.height + "background color is: " + styles.backgroundColor;
         });
     });
 
