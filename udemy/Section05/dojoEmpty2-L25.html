@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo: DOM Functions - EMPTY</title>
+</head>
+<body>
+
+    <h1> DEMO: DOMCONSTRUCT EMPTY</h1>
+
+    <div id="container" style="border:1px solid black;">
+        <div id="test1" class="testClass" style="border:1px solid red;"> First Day </div>
+        <div id="test2" class="testClass" style="border:1px solid pink;"> Second Day </div>
+        <div id="test3" class="testClass" style="border:1px solid green;"> First Day </div>
+        <div id="test4" class="testClass" style="border:1px solid yellow;"> Second Day </div>
+        <div id="test5" class="testClass" style="border:1px solid grey;"> First Day </div>
+        <div id="test6" class="testClass" style="border:1px solid violet;"> Second Day </div>
+    </div>
+    <button id="removeTestNodes">removeTestNodes</button>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script>
+        require(["dojo/dom", "dojo/query", "dojo/on", "dojo/dom-construct", "dojo/domReady!"], function (dom,query,on,domConstruct) {
+            var removeBtn = dom.byId("removeTestNodes");
+            on(removeBtn,"click",function(){
+                query(".testClass").forEach(domConstruct.empty);
+            });
+        });
+    </script>
+    
+</body>
+</html>

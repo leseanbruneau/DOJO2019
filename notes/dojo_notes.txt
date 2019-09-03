@@ -134,4 +134,38 @@ handle.remove();
 -- Subscribe returns an event handle, can be removed.
 
 
+Section 5 - DOJO DOM Manipulations
+-------------
+
+DOM Functions:
+---------------
+1. Query/Retrieval
+2. Placement
+3. Create
+4. Empty
+5. Destroy
+
+
+Placement
+
+- dom-construct module
+- Move nodes around in the dom
+
+Syntax:
+- 3 arguments
+domConstruct.place()
+- Node, ref, pos
+
+
+Create
+
+- Create new nodes
+- Set parameters on the node
+- Place the node
+
+domConstruct.Create()
+- 4 arguments
+- Node, Attributes, Reference, Position
+- 3 Optional
+
 

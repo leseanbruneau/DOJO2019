@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Demo: DOM Functions - DESTROY</title>
+</head>
+<body>
+
+    <h1> DEMO: DOMCONSTRUCT DESTROY</h1>
+
+    <div id="container" style="border:1px solid black;">
+        <div id="test1" class="testClass" style="border:1px solid red;"> First Div </div>
+        <div id="test2" class="testClass" style="border:1px solid pink;"> Second Div </div>
+        <div id="test3" class="testClass" style="border:1px solid green;"> Third Div </div>
+        <div id="test4" class="testClass" style="border:1px solid yellow;"> Fourth Div </div>
+        <div id="test5" class="testClass" style="border:1px solid grey;"> Fifth Div </div>
+        <div id="test6" class="testClass" style="border:1px solid violet;"> Sixth Div </div>
+    </div>
+    <button id="removeTestNodes">removeTestNodes</button>
+    <button id="removeFirstDiv">removeFirst</button>
+    <button id="removeSecondDiv">removeSecond</button>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script>
+        require(["dojo/dom", "dojo/query", "dojo/on", "dojo/dom-construct", "dojo/domReady!"], function (dom,query,on,domConstruct) {
+            var removeBtn = dom.byId("removeTestNodes");
+            var removeFirstBtn = dom.byId("removeFirstDiv");
+            var removeSecondBtn = dom.byId("removeSecondDiv");
+
+            on(removeFirstBtn,"click",function(){
+                domConstruct.destroy("test1");
+            });
+
+            on(removeSecondBtn,"click",function(){
+                domConstruct.destroy("test2");
+            });
+
+            on(removeBtn,"click",function(){
+                query(".testClass").forEach(domConstruct.destroy);
+            });
+        });
+    </script>
+    
+</body>
+</html>

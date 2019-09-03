@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> DEMO: DOMCONSTRUCT CREATE </h1>
+
+    <ul id="list">
+        <li id="one">ONE</li>
+        <li id="two">TWO</li>
+        <li id="three">THREE</li>
+        <li id="four">FOUR</li>
+        <li id="five">FIVE</li>
+    </ul>
+    <button id="addEight">addEightAtTop</button>
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script>
+        require(["dojo/dom", "dojo/dom-construct", "dojo/on", "dojo/domReady!"], function (dom, domConstruct,on) {
+            var five = dom.byId("five");
+            var list = dom.byId("list");
+            var button = dom.byId("addEight");
+
+            //domConstruct.create("li",{id:"seven",innerHTML:"seven"},five,"after");
+            domConstruct.create("li",{id:"seven",innerHTML:"seven"},list,"last");
+
+            on(button,"click",function() {
+                domConstruct.create("li",{id:"eight",innerHTML:"eight",style:{color:"red"}},list,"first");
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
