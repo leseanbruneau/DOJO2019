@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOJO FX - slide</title>
+</head>
+<body>
+    <h1> DEMO: DOJO FX - slide </h1>
+    <div id="testNode" style="background:green;width:200px;height:200px;display:block;"> Hello Dojo! </div>
+    <button id="slideout">Slide Out </button>
+    <button id="slidein">Slide In</button>
+
+    <script src="//ajax.googleapis.com/ajax/libs/dojo/1.14.1/dojo/dojo.js" data-dojo-config="async:true"></script>
+    <script>
+        require(["dojo/dom", "dojo/on", "dojo/fx", "dojo/fx/easing","dojo/domReady!"], function (dom,on,fx,easy) {
+            var testNode = dom.byId("testNode");
+            var slideinBtn = dom.byId("slidein");
+            var slideoutBtn = dom.byId("slideout");
+
+            on(slideoutBtn,"click",function(){
+                var slideOutAnim = fx.slideTo({node:testNode,duration:4000,top:200,left:500});
+
+                slideOutAnim.play();
+            });
+
+            on(slideinBtn,"click",function(){
+                var slideinAnim = fx.slideTo({node:testNode,duration:5000,easing:easy.bounceIn,top:100,left:10});
+
+                slideinAnim.play();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

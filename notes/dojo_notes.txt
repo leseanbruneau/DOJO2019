@@ -169,3 +169,97 @@ domConstruct.Create()
 - 3 Optional
 
 
+Section 6
+DOJO EFFECTS AND ANIMATIONS
+---------------------------
+
+1. Fadein
+2. Fadeout
+
+Syntax
+
+fx.fadeIn({parameters});
+fx.fadeOut({parameters});
+
+fx is the dojo/_base/fx module.
+
+use .play(); to play animation
+
+
+WIPE
+
+dojo/fx
+
+1. wipeIn({parameters})
+2. wipeOut({parameters})
+
+
+SLIDETO
+
+Move nodes around 
+
+fx.slideTo({parameters})
+
+node, top, left
+
+AnimateProperty
+
+resides inside dojo/_base/fx module
+
+fx.animateProperty({
+node:"nodeId",
+properties:{cssProperty1: value,  (ex: width:300px;  default-end)
+     cssProperty2:{start:value1,end:value2}(ex: height:{start:100px,end:200px}),
+     cssProperty3:{end:value1,unit:unitType(ex: width:{end:300, unit="pt"})}
+
+}
+});
+
+
+-------------------------------------------------
+Chaining and combining
+
+combine([animation1, animation2, etc...])
+
+chain([animation1, animation2, etc...])
+
+present in dojo/fx module
+
+
+-------------------------------------------------
+Animation events
+
+Animation controls - Play, pause, stop
+
+Animation Events - Used for listening to and performing custom actions before, during and after the animation.
+
+1. beforeBegin
+2. onBegin
+3. onPlay
+4. onAnimate
+5. onEnd
+
+fx.fadeOut(
+ node:"nodeId"
+ duration:1000,
+ delay:2000,
+ beforeBegin:function(){
+   ------------steps
+ };
+
+onEnd:function(){}
+
+)
+
+var fadeOutAnimation = fx.fadeOut({node:"nodeId",duration:2000});
+
+on(fadeOutAnimation,"onEnd",function(){
+---steps...
+
+});
+
+
+
+
+
+
